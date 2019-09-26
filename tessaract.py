@@ -14,13 +14,16 @@ class Tessaract(object):
 
 	@staticmethod
 	def calculate_rotation_matrix(degree):
-		result = asarray([[np.cos(degree),-np.sin(degree),0,0],
-			[np.sin(degree),-np.cos(degree),0,0],
+		result = np.asarray([[np.cos(degree),-np.sin(degree),0,0],
+			[np.sin(degree),np.cos(degree),0,0],
 			[0,0,1,0],
 			[0,0,0,1]])	
 		return result
 	
 
 	def rotate(self,degree):
-		rmatrix = calculate_rotation_matrix(degree)
+		rmatrix = Tessaract.calculate_rotation_matrix(degree)
+		self.vertex = np.dot(rmatrix,self.vertex.T).T
+
+
 		
