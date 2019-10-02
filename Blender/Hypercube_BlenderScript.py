@@ -83,8 +83,7 @@ for i_frame in range(n_frames):
     for (v,co) in zip(block.data,data[i_frame]):
         v.co = co
 
-# set up key frames
-for i_frame in range(n_frames):
+    # set up key frames
     block.mute = True
     block.keyframe_insert(data_path = "mute",frame = 0,index =-1)
     
